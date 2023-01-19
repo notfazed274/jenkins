@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
+                sh 'python main.py'
             }
         }
         stage('Test') {
