@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building...'
+                echo 'Executing .py files...'
                 sh 'python3 main.py'
             }
         }
