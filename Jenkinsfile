@@ -3,7 +3,7 @@ pipeline {
     stages {
             stage('Setup') {
             steps {
-                env.PATH = "${env.PATH}:/var/lib/jenkins/.local/bin"
+                withEnv(["PATH+JENKINS=${env.PATH}:/var/lib/jenkins/.local/bin"]) {
             }
         }
         stage('Checkout') {
