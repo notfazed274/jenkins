@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt /var/lib/jenkins/.local/bin'
+                sh 'pip install --user -r requirements.txt'
             }
         }
         stage('Run Flask app') {
