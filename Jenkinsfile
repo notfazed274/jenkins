@@ -6,15 +6,19 @@ pipeline {
                 git url: 'https://github.com/notfazed274/jenkins.git', branch: 'main'
             }
         }
-        stage('Build') {
+        stage('Install Dependencies') {
             steps {
-                echo 'Executing .py files...'
-                sh 'python3 main.py'
+                sh 'pip install -r requirements.txt'
+            }
+        }
+        stage('Run Flask app') {
+            steps {
+                sh 'flask --app main.py run'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing...'
+                sh 'python3 req.py'
             }
         }
     }
