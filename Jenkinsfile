@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Run Flask app') {
             steps {
-                sh '/var/lib/jenkins/.local/bin/flask --app main.py run'
+                sh '/var/lib/jenkins/.local/bin/flask --app main.py run &'
             }
         }
         stage('Test') {
