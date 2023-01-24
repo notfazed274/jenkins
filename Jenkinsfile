@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-            stage('Setup') {
-            steps {
-                withEnv(["PATH+JENKINS=${env.PATH}:/var/lib/jenkins/.local/bin"]) {
-            }
-        }
         stage('Checkout') {
             steps {
                 git url: 'https://github.com/notfazed274/jenkins.git', branch: 'main'
@@ -18,7 +13,7 @@ pipeline {
         }
         stage('Run Flask app') {
             steps {
-                sh 'flask --app main.py run'
+                sh '/var/lib/jenkins/.local/bin/flask --app main.py run'
             }
         }
         stage('Test') {
