@@ -14,6 +14,7 @@ pipeline {
          stage('API testing') {
             steps {
                 sh 'npm install'
+                sh 'npm install newman'
             }
         }
         stage('Run Flask app') {
