@@ -13,8 +13,8 @@ pipeline {
         }
          stage('API testing') {
             steps {
-                sh 'curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -'
-                sh 'sudo apt-get install -y nodejs'
+                sh 'curl -sL https://deb.nodesource.com/setup_14.x | -E bash -'
+                sh 'apt-get install -y nodejs'
                 sh 'npm install -g newman'
             }
         }
