@@ -2,8 +2,7 @@ pipeline {
     agent any
     stages {
         stage('Checkout') {
-            steps
-                node('14.x') {
+            steps {
                 git url: 'https://github.com/notfazed274/jenkins.git', branch: 'main'
             }
         }
