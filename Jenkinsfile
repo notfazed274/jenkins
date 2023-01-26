@@ -13,9 +13,7 @@ pipeline {
         }
          stage('API testing') {
             steps {
-                sh 'curl -sL https://deb.nodesource.com/setup_14.x | -E bash -'
-                sh 'apt-get install -y nodejs'
-                sh 'npm install -g newman'
+                sh 'npm install'
             }
         }
         stage('Run Flask app') {
