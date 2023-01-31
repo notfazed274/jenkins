@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python3 req.py'
+                sh 'newman run POC.postman_collection.json'
             }
         }
     }
