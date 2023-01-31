@@ -1,12 +1,14 @@
 pipeline {
     agent {
         docker {
-            image 'docker.io/notfazed274/docker-poc:latest'
+            image 'docker.io/notfazed274/image-os:latest'
         }
     }
     stages {
         stage('Run Flask app') {
             steps {
+		sh 'snap install node --classic --channel=8'
+		sh 'npm install newman'
                 sh 'flask --app main.py run &'
             }
         }
