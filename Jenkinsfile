@@ -1,11 +1,10 @@
 pipeline {
-    agent any
-    stages {
-        stage('Install Dependencies') {
-            steps {
-                sh 'pip install --user -r requirements.txt'
-            }
+    agent {
+        docker {
+            image 'docker.io/notfazed274/docker-poc:latest'
         }
+    }
+    stages {
         stage('Run Flask app') {
             steps {
                 sh 'flask --app main.py run &'
