@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'docker.io/notfazed274/image-os:latest'
+	    args '-e SNAP_DATA=/home/snap'
         }
     }
     stages {
