@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'newman run collection-2.json '
+                sh 'newman run collection-2.json'
             }
         }
     }
