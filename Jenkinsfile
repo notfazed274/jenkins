@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'docker.io/notfazed274/2-1-test-1:latest'
+            image 'docker.io/notfazed274/jenkins-image-newman-report:latest'
         }
     }
     stages {
