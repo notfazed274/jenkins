@@ -10,7 +10,12 @@ pipeline {
                 script {
                     def reportFile = "newman-report.html"
                     sh "newman run collection-2.json -r html --reporter-html-export ${reportFile}"
-                    sh "cat ${reportFile} | mail -s 'Newman Test Report' -a "./newman-report.html;type=text/html" admiring.visvesvaraya@gmail.com"
+                    def emailBody = new File(reportFile).text
+                    mail to: "admiring.visvesvaraya@gmail.com",
+                        subject: "Newman Test Report",
+                          mimeType: 'text/html',
+                          body: emailBody,
+                          attachments: [new FileAttachment("${reportFile}")]
                 }
             }
         }
