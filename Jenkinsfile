@@ -10,10 +10,14 @@ pipeline {
                 script {
                     def reportFile = "newman-report.html"
                     sh "newman run collection-2.json -r html --reporter-html-export ${reportFile}"
-                    sh "cat ${reportFile} | mail -s 'Newman Test Report' -a ${reportFile} admiring.visvesvaraya@gmail.com"
+                    sh "cat ${reportFile} | mail -s 'Newman Test Report' -a "./newman-report.html;type=text/html" admiring.visvesvaraya@gmail.com"
                 }
             }
         }
     }
 }
+
+
+
+
 
